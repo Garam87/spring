@@ -158,6 +158,7 @@ function selectAll(){ // 회원 전체 조회 함수
     // ajax코드
     $.ajax({
         url : "member/selectAll",
+        
         dataType : "json",    //  응답 데이터의 형식을 "json"으로 지정
                               // -> 자동으로 JS 객체로 변환됨
         success : function( list ){
