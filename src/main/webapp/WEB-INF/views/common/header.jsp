@@ -25,7 +25,7 @@
 	    	
 	    	 --%>
 	     
-	        <img src="${contextPath}/resources/images/logo.jpg" id="home-logo">
+	        <img src="${contextPath}/resources/images/loopy.jpg" id="home-logo">
 	      	
 	    </a>
 	</section>

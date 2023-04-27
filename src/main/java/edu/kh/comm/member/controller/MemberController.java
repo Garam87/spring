@@ -280,6 +280,17 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String signUp(Member inputMember, RedirectAttributes ra) {
 	
+		
+		if(inputMember.getMemberAddress() != null) {
+			String[] address = inputMember.getMemberAddress().split(",");
+			String address2 = String.join("\n", address);
+			inputMember.setMemberAddress(address2);
+		} else {
+			inputMember.setMemberAddress(null);
+		}
+		
+		
+		
 		int result = service.signUp(inputMember);
 		
 		if(result == 1) {
@@ -309,5 +320,35 @@ public class MemberController {
 		
 		return new Gson().toJson(memList);
 	}
+	
+	
+	
+	/* 스프링 예외 처리 방법 (3가지, 중복 사용 가능)
+	 * 
+	 * 1 순위 : 메서드 별로 예외처리 (try-catch / throws)
+	 * 
+	 * 2 순위 : 하나의 컨트롤러에서 발생하는 예외를 모아서 처리
+	 * 			-> 해당 컨트롤러 제일 아래에 작성
+	 * 			-> @ExceptionHandler (메서드 작성)
+	 * 
+	 * 3 순위 : 전역 ( 웹 애플리케이션 )에서 발생하는 예외를 모아서 처리
+	 * 			-> @ControllerAdvice(클래스에 작성)
+	 * 
+	 * 
+	 * 
+	 * */
+	
+	// 회원 컨트롤러에서 발생하는 모든 예외를 모아서 처리
+//	@ExceptionHandler(Exception.class)
+//	public String ExceptionHandler(Exception e, Model model) {
+//		e.printStackTrace();
+//		
+//		model.addAttribute("errorMessage", "서비스 이용 중 문제가 발생했습니다.");
+//		model.addAttribute("e", e);
+//		
+//		return "common/error";
+//	}
+	
+	
 	
 }

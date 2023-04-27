@@ -80,7 +80,7 @@
 
 .myPage-row > label{
     width: 30%;
-    color : #455ba8;
+    color : #ffbebe;
 }
 
 .myPage-row > span{
@@ -96,7 +96,7 @@
 }
 
 .myPage-row:focus-within{
-    border-bottom: 2px solid #455ba8;
+    border-bottom: 2px solid #ffbebe;
 }
 
 form[name="myPage-form"]{
@@ -108,7 +108,7 @@ form[name="myPage-form"]{
 
 /* 내 정보 */
 .info-title{
-    color : #455ba8;
+    color : #ffbebe;
     border : 0;
 }
 
@@ -134,7 +134,7 @@ form[name="myPage-form"]{
     border: none;
     font-size: 20px;
     font-weight: bold;
-    background-color: #455ba8;
+    background-color: #ffbebe;
     color: white;
     cursor: pointer;
 }
@@ -210,7 +210,7 @@ form[name="myPage-form"]{
 
 /* 변경하기 버튼 */
 .profile-btn-area > button{
-    background-color: #455ba8;
+    background-color: #ffbebe;
     color : white;
     border: 0;
 }

@@ -43,7 +43,7 @@
 }
 
 .list-table > thead{
-    background-color: #455ba8;
+    background-color: #ffbebe;
     color : white
 }
 
@@ -87,8 +87,8 @@
     height: 40px;
 
     background-color: white;
-    border: 2px solid #455ba8;
-    color:#455ba8;
+    border: 2px solid #ffbebe;
+    color:#ffbebe;
 
     border-radius: 5px;
 
@@ -121,7 +121,7 @@
 
 /* 현재 페이지 번호 */
 .pagination .current{
-    background-color: #455ba8;
+    background-color: #ffbebe;
     border-radius: 50%;
     color: white;
     font-weight: bold;
@@ -159,7 +159,7 @@
 #boardSearch button{
     width: 100px;
 
-    background-color: #455ba8;
+    background-color: #ffbebe;
     color: white;
     border : 0;
 

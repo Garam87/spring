@@ -26,7 +26,7 @@
 /* 게시글 제목 input에 포커스가 맞춰 졌을 때 */
 /* :focus-within  : 자식 input요소에 포커스가 맞춰 졌을 때 */
 .board-title:focus-within{
-    border-bottom-color : #455ba8;
+    border-bottom-color : #ffbebe;
 }
 
 
@@ -114,7 +114,7 @@
 
     font-weight: bold;
     border: 0;
-    background-color: #455ba8;
+    background-color: #ffbebe;
     color : white;
 
     cursor: pointer;
@@ -122,6 +122,6 @@
 
 .board-btn-area button:hover{
     background-color: white;
-    color : #455ba8;
-    border: 2px solid #455ba8;
+    color : #ffbebe;
+    border: 2px solid #ffbebe;
 }
