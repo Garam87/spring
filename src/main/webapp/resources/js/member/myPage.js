@@ -9,20 +9,29 @@ function infoValidate(){
 
     // 닉네임 유효성 검사
     if(memberNickname.value.length == 0){ // 미작성 시 : 닉네임을 입력해주세요.
-        alert("닉네임을 입력해주세요.");
+        //alert("닉네임을 입력해주세요.");
+        Swal.fire(
+            "닉네임을 입력해주세요."
+          )
         memberNickname.focus();
         return false;
     }
 
     if(!regExp1.test(memberNickname.value)){ // 유효하지 않은 경우
-        alert("닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요.");
+        //alert("닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요.");
+        Swal.fire(
+            "닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요."
+          )
         memberNickname.focus();
         return false;
     }
 
     // 전화번호 유효성 검사
     if(memberTel.value.length == 0){ // 미작성 시
-        alert("전화번호를 입력해주세요.(- 제외)");
+        //alert("전화번호를 입력해주세요.(- 제외)");
+        Swal.fire(
+            "전화번호를 입력해주세요.(- 제외)"
+          )
         memberTel.focus();
         return false;
     }
@@ -41,7 +50,10 @@ function infoValidate(){
 
 // 경고 출력 + 포커스 + false 반환  함수
 function printAlert(el, message){ // 매개변수 el은 요소
-    alert(message);
+    // alert(message);
+    Swal.fire(
+        message
+      )
     el.focus();
     return false;
 }
@@ -74,14 +86,20 @@ function changePwValidate(){
     // 새 비밀번호
     // 미작성
     if(newPw.value.trim().length == 0){
-        alert("새 비밀번호를 입력해주세요.");
+       // alert("새 비밀번호를 입력해주세요.");
+        Swal.fire(
+            "새 비밀번호를 입력해주세요."
+          )
         newPw.focus();
         return false;
     }
 
     // 유효하지 않은 경우
     if(!regEx.test(newPw.value)){
-        alert("영어, 숫자, 특수문자(!,@,#,-,_) 6~30 글자 사이로 작성해주세요.");
+        //alert("영어, 숫자, 특수문자(!,@,#,-,_) 6~30 글자 사이로 작성해주세요.");
+        Swal.fire(
+            "영어, 숫자, 특수문자(!,@,#,-,_) 6~30 글자 사이로 작성해주세요."
+          )
         newPw.focus();
         return false;
     }
@@ -113,7 +131,9 @@ function secessionValidate(){
 
     // 비밀번호 미작성
     if(memberPw.value.trim().length == 0){
-        alert("비밀번호를 입력해주세요.");
+        //alert("비밀번호를 입력해주세요.");
+        Swal.fire("비밀번호를 입력해주세요.")
+        
         memberPw.focus();
         return false;
     }
@@ -122,7 +142,8 @@ function secessionValidate(){
     // - 체크박스요소.checked  : 체크 시 true, 해제 시 false 반환
 
     if( !agree.checked ){ // 체크를 안했을 때
-        alert("약관 동의 후 탈퇴 버튼을 클릭해주세요.");
+        //alert("약관 동의 후 탈퇴 버튼을 클릭해주세요.");
+        Swal.fire("약관 동의 후 탈퇴 버튼을 클릭해주세요.")
         agree.focus();
         return false;
     }

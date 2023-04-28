@@ -291,7 +291,8 @@ function signUpValidate(){
 
             str += " 유효하지 않습니다.";
 
-            alert(str);
+            // alert(str);
+            Swal.fire(str);
 
             document.getElementById(key).focus();
             

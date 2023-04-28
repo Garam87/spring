@@ -28,6 +28,7 @@
 	        <img src="${contextPath}/resources/images/loopy.jpg" id="home-logo">
 	      	
 	    </a>
+		<div class="loopy-logo">루피커뮤니티</div>
 	</section>
 	
 	<section>

@@ -12,6 +12,8 @@
      <link rel="stylesheet" href="../resources/css/main-style.css">
      
      <link rel="stylesheet" href="../resources/css/signUp-style.css">
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
      <!-- 우편번호 api -->
      <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

@@ -277,30 +277,71 @@ public class MemberController {
 	
 	
 	// 회원 가입
+	//@PostMapping("/signUp")
+//	public String signUp(Member inputMember, RedirectAttributes ra) {
+//	
+//		
+//		if(inputMember.getMemberAddress() != null) {
+//			String[] address = inputMember.getMemberAddress().split(",");
+//			String address2 = String.join("\n", address);
+//			inputMember.setMemberAddress(address2);
+//		} else {
+//			inputMember.setMemberAddress(null);
+//		}
+//		
+//		
+//		
+//		int result = service.signUp(inputMember);
+//		
+//		if(result == 1) {
+//			ra.addFlashAttribute("message", "회원가입 성공");
+//		} else {
+//			ra.addFlashAttribute("message", "회원가입 실패");
+//		}
+//		
+//		return "redirect:/";
+//	}
 	@PostMapping("/signUp")
-	public String signUp(Member inputMember, RedirectAttributes ra) {
-	
+	public String signUp( Member inputMember,
+						String[] memberAddress, // ["01432", "서울시성동구", "101호"..]
+						RedirectAttributes ra
+			) {
 		
-		if(inputMember.getMemberAddress() != null) {
-			String[] address = inputMember.getMemberAddress().split(",");
-			String address2 = String.join("\n", address);
-			inputMember.setMemberAddress(address2);
-		} else {
-			inputMember.setMemberAddress(null);
+		// 커맨드 객체를 이용해서 입력된 회원 정보를 잘 받아옴 
+		// 단, 같은 name을 가진 주소가 하나의 문자열로 합쳐서 세팅되어 들어옴.
+		// -> 도로명 주소에 "," 기호가 포함되는 경우가 있어 이를 구분자로 사용할 수 없다.
+		
+		inputMember.setMemberAddress( String.join(",,", memberAddress) );
+		// String.join("구분자", 배열)
+		// 배열을 하나의 문자열로 합치는 메서드
+		// 값 중간중간에 구분자가 들어가서 하나의 문자열로 합쳐줌
+		// [a, b, c] -> join 진행 -> "a,,b,,c"
+		
+		if( inputMember.getMemberAddress().equals(",,,,") ) {// 주소가 입력되지 않은 경우
+			inputMember.setMemberAddress(null); // null로 변환
 		}
 		
 		
-		
+		// 회원 가입 서비스 호출
 		int result = service.signUp(inputMember);
 		
-		if(result == 1) {
-			ra.addFlashAttribute("message", "회원가입 성공");
-		} else {
-			ra.addFlashAttribute("message", "회원가입 실패");
+		String message = null;
+		String path = null;
+		
+		if(result > 0) { // 성공
+			message = "회원 가입 성공!!";
+			path = "redirect:/"; // 메인페이지
+		} else { // 실패
+			message = "회원 가입 실패 ㅠㅠ";
+			path = "redirect:/member/signUp"; // 회원 가입 페이지
 		}
 		
-		return "redirect:/";
+		ra.addFlashAttribute("message", message);
+		
+		return path;
 	}
+	
+	
 	
 	
 	// 회원 1명 정보 조회(ajax)

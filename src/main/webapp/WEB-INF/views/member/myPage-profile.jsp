@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/myPage-style.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <main>
@@ -72,7 +75,7 @@
 
                     <div class="profile-btn-area">
                         <label for="input-image">이미지 선택</label>
-                        <input type="file" name="profileImage" id="input-image" accept="image/*">
+                        <input type="file" name="uploadImage" id="input-image" accept="image/*">
                         <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
                         <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
                         <!-- accept=".pdf" : pdf파일만 선택 허용 -->

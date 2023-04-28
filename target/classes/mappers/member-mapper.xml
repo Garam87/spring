@@ -159,7 +159,7 @@
      </select>
      
      <!-- 회원가입 -->
-     <select id="signUp" parameterType="member" resultType="_int">
+     <insert id="signUp" parameterType="member">
      	INSERT INTO MEMBER_S
      	VALUES(SEQ_MEMBER_NO_S.NEXTVAL,
      		#{memberEmail},
@@ -168,7 +168,7 @@
      		#{memberTel},
      		#{memberAddress},
      		 DEFAULT, DEFAULT, DEFAULT)
-     </select>
+     </insert>
      
      <!-- 회원 1명 조회 -->
      <select id="selectOne" parameterType="string" resultMap="member_rm">

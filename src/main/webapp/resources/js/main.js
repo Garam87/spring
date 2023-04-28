@@ -21,7 +21,7 @@ function loginValidate(){ // 로그인 유효성 검사
         // 문자열.trim() : 문자열 양쪽 공백을 제거
         // 문자열.length : 문자열 길이(몇 글자?)
 
-        alert("이메일을 입력해주세요.");
+        Swal.fire("이메일을 입력해주세요.");
         inputEmail.value = ""; // 이메일 input에 입력된 내용을 모두 삭제
         inputEmail.focus(); // 이메일 input에 포커스를 맞춰줌
         return false; // 기본 이벤트 제거를 위해 false 반환
@@ -29,7 +29,7 @@ function loginValidate(){ // 로그인 유효성 검사
 
     // 비밀번호를 입력하지 않은 경우 false 반환
     if(inputPw.value.trim() == ""){
-        alert("비밀번호를 입력해주세요.");
+        Swal.fire("비밀번호를 입력해주세요.");
         inputPw.value = "";
         inputPw.focus();
         return false;

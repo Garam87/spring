@@ -17,6 +17,9 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/myPage-style.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
