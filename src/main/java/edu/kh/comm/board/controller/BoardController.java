@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.kh.comm.board.model.service.BoardService;
 import edu.kh.comm.board.model.vo.BoardDetail;
+import edu.kh.comm.common.Utill;
 import edu.kh.comm.member.model.vo.Member;
 
 @Controller
@@ -180,6 +181,33 @@ public class BoardController {
 		
 		return "board/boardDetail";
 	}
+	
+	
+	// 게시글 작성 화면 전환
+	@GetMapping("/write/{boardCode}")
+	public String boardWriteForm(@PathVariable("boardCode") int boardCode,
+								String mode,
+								@RequestParam(value="no", required=false, defaultValue="0") int boardNo,
+								Model model) {
+		
+		if(mode.equals("update")) {
+			// 게시글 상세 조회 서비스 호출(boardNo)
+			BoardDetail detail = service.selectBoardDetail(boardNo);
+			
+			// -> 개행문자가 <br> 로 되어있는 상태 -> textarea 출력 예정이기 때문에 \n 으로 변경
+			
+			detail.setBoardContent( Utill.newLineClear(detail.getBoardContent()) );
+			
+			model.addAttribute("detail", detail);
+		}
+		
+		
+		return "board/boardWriteForm";
+	}
+	
+	
+	
+	
 	
 	
 }
