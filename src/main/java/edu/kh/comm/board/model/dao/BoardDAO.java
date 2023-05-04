@@ -1,6 +1,7 @@
 package edu.kh.comm.board.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.comm.board.model.vo.Board;
+import edu.kh.comm.board.model.vo.BoardDetail;
 import edu.kh.comm.board.model.vo.BoardType;
 import edu.kh.comm.board.model.vo.Pagination;
 
@@ -51,4 +53,43 @@ public class BoardDAO {
 		
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
+
+	public BoardDetail selectBoardDetail(int boardNo) {
+		return sqlSession.selectOne("boardMapper.selectBoardDetail", boardNo);
+	}
+
+	// 게시글 조회수 증가
+	public int updateReadCount(int boardNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("boardMapper.updateReadCount", boardNo);
+	}
+
+	/** 검색 조건에 맞는 게시글 목록의 전체 개수 조회
+	 * 
+	 * @param paramMap
+	 * @return
+	 */
+	public int searchBoardList(Map<String, Object> paramMap) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("boardMapper.searchListCount", paramMap);
+	}
+
+	/** 검색 조건에 맞는 게시글 목록 조회 (페이지 적용)
+	 * @param paramMap
+	 * @param pagination
+	 * @return
+	 */
+	public List<Board> searchBoardList(Map<String, Object> paramMap, Pagination pagination) {
+		int offset = ( pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("boardMapper.searchBoardList", paramMap, rowBounds);
+	}
+	
+
+	
+	
+	
+	
 }

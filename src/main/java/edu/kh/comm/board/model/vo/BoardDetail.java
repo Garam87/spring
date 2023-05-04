@@ -1,5 +1,6 @@
 package edu.kh.comm.board.model.vo;
 
+import java.sql.Date;
 import java.util.List;
 
 import lombok.Getter;
@@ -20,6 +21,9 @@ public class BoardDetail {
 	private String profileImage;
 	private int memberNo;
 	private String boardName;
+	
+	
+	
 	
 	private List<BoardImage> imageList;
 	
