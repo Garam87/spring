@@ -24,7 +24,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.comm.board.model.service.BoardService;
+import edu.kh.comm.board.model.service.ReplyService;
 import edu.kh.comm.board.model.vo.BoardDetail;
+import edu.kh.comm.board.model.vo.Reply;
 import edu.kh.comm.common.Utill;
 import edu.kh.comm.member.model.vo.Member;
 
@@ -35,6 +37,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private ReplyService rService;
 	
 	// 게시글 목록 조회
 	
@@ -111,7 +116,8 @@ public class BoardController {
 		if(detail != null) {
 			
 			// 댓글 목록 조회
-			
+			List<Reply> rList = rService.selectReplyList(boardNo);
+			model.addAttribute("rList", rList);
 
 			// 세션이 잇는지 없는지
 			// 세션이 있으면 memberNo 세팅
