@@ -55,6 +55,9 @@ public interface BoardService {
 			String deleteList) throws IOException;
 
 	
+	List<String> selectDBList();
+
+	
 
 	
 

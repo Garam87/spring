@@ -282,6 +282,13 @@ public class BoardServiceImpl implements BoardService {
 		
 		return result;
 	}
+
+	@Override
+	public List<String> selectDBList() {
+		return dao.selectDBList();
+	}
+	
+	
 	
 	
 	

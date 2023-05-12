@@ -141,6 +141,14 @@ public class BoardDAO {
 
 		return sqlSession.insert("boardMapper.insertBoardImage", img);
 	}
+
+	/** BOARD_IMG 이미지 목록조회 DAO
+	 * @return
+	 */
+	public List<String> selectDBList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("boardMapper.selectDBList");
+	}
 	
 
 	
